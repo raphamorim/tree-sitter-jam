@@ -107,9 +107,9 @@ fn test() {
           (number_literal))
         body: (block
           (expression_statement
-            (binary_expression
-              (identifier)
-              (binary_expression
+            (assignment_expression
+              left: (identifier)
+              right: (binary_expression
                 (identifier)
                 (number_literal)))))))))
 

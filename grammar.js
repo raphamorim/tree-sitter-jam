@@ -157,6 +157,7 @@ module.exports = grammar({
 
     // Expressions
     _expression: $ => choice(
+      $.assignment_expression,
       $.binary_expression,
       $.call_expression,
       $.member_expression,
@@ -166,6 +167,12 @@ module.exports = grammar({
       $.boolean_literal,
       $.parenthesized_expression,
     ),
+
+    assignment_expression: $ => prec.right(0, seq(
+      field('left', $.identifier),
+      '=',
+      field('right', $._expression)
+    )),
 
     parenthesized_expression: $ => seq(
       '(',
