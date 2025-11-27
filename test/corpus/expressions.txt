@@ -1,0 +1,93 @@
+================================================================================
+Function call
+================================================================================
+
+fn test() {
+    print("hello");
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_declaration
+    name: (identifier)
+    parameters: (parameter_list)
+    body: (block
+      (expression_statement
+        (call_expression
+          function: (identifier)
+          arguments: (argument_list
+            (string_literal)))))))
+
+================================================================================
+Member expression call
+================================================================================
+
+fn test() {
+    std.fmt.println("hello");
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_declaration
+    name: (identifier)
+    parameters: (parameter_list)
+    body: (block
+      (expression_statement
+        (call_expression
+          function: (member_expression
+            object: (member_expression
+              object: (identifier)
+              member: (identifier))
+            member: (identifier))
+          arguments: (argument_list
+            (string_literal)))))))
+
+================================================================================
+String with escape sequences
+================================================================================
+
+fn test() {
+    print("\x1b[31mRed\x1b[0m\n");
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_declaration
+    name: (identifier)
+    parameters: (parameter_list)
+    body: (block
+      (expression_statement
+        (call_expression
+          function: (identifier)
+          arguments: (argument_list
+            (string_literal
+              (escape_sequence)
+              (escape_sequence)
+              (escape_sequence))))))))
+
+================================================================================
+Comments
+================================================================================
+
+// This is a comment
+fn main() u8 {
+    // Another comment
+    return 0;
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (comment)
+  (function_declaration
+    name: (identifier)
+    parameters: (parameter_list)
+    return_type: (type
+      (primitive_type))
+    body: (block
+      (comment)
+      (return_statement
+        (number_literal)))))

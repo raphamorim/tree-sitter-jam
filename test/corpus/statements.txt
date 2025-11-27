@@ -1,0 +1,162 @@
+================================================================================
+Variable declarations
+================================================================================
+
+fn test() {
+    const x: u8 = 10;
+    var y: i32 = 20;
+    const z = 30;
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_declaration
+    name: (identifier)
+    parameters: (parameter_list)
+    body: (block
+      (variable_declaration
+        name: (identifier)
+        type: (type
+          (primitive_type))
+        value: (number_literal))
+      (variable_declaration
+        name: (identifier)
+        type: (type
+          (primitive_type))
+        value: (number_literal))
+      (variable_declaration
+        name: (identifier)
+        value: (number_literal)))))
+
+================================================================================
+If statement
+================================================================================
+
+fn test() {
+    if (x == 1) {
+        return 1;
+    }
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_declaration
+    name: (identifier)
+    parameters: (parameter_list)
+    body: (block
+      (if_statement
+        condition: (binary_expression
+          (identifier)
+          (number_literal))
+        consequence: (block
+          (return_statement
+            (number_literal)))))))
+
+================================================================================
+If-else statement
+================================================================================
+
+fn test() {
+    if (x < 10) {
+        return 0;
+    } else {
+        return 1;
+    }
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_declaration
+    name: (identifier)
+    parameters: (parameter_list)
+    body: (block
+      (if_statement
+        condition: (binary_expression
+          (identifier)
+          (number_literal))
+        consequence: (block
+          (return_statement
+            (number_literal)))
+        alternative: (block
+          (return_statement
+            (number_literal)))))))
+
+================================================================================
+While loop
+================================================================================
+
+fn test() {
+    while (x < 10) {
+        x = x + 1;
+    }
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_declaration
+    name: (identifier)
+    parameters: (parameter_list)
+    body: (block
+      (while_statement
+        condition: (binary_expression
+          (identifier)
+          (number_literal))
+        body: (block
+          (expression_statement
+            (binary_expression
+              (identifier)
+              (binary_expression
+                (identifier)
+                (number_literal)))))))))
+
+================================================================================
+For loop
+================================================================================
+
+fn test() {
+    for i in 0:10 {
+        break;
+    }
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_declaration
+    name: (identifier)
+    parameters: (parameter_list)
+    body: (block
+      (for_statement
+        variable: (identifier)
+        start: (number_literal)
+        end: (number_literal)
+        body: (block
+          (break_statement))))))
+
+================================================================================
+Break and continue
+================================================================================
+
+fn test() {
+    while (true) {
+        break;
+        continue;
+    }
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_declaration
+    name: (identifier)
+    parameters: (parameter_list)
+    body: (block
+      (while_statement
+        condition: (boolean_literal)
+        body: (block
+          (break_statement)
+          (continue_statement))))))

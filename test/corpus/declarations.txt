@@ -1,0 +1,96 @@
+================================================================================
+Import declaration
+================================================================================
+
+const std = import("std");
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (import_declaration
+    name: (identifier)
+    path: (string_literal)))
+
+================================================================================
+Simple function
+================================================================================
+
+fn main() u8 {
+    return 0;
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_declaration
+    name: (identifier)
+    parameters: (parameter_list)
+    return_type: (type
+      (primitive_type))
+    body: (block
+      (return_statement
+        (number_literal)))))
+
+================================================================================
+Function with parameters
+================================================================================
+
+fn add(a: i32, b: i32) i32 {
+    return a + b;
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_declaration
+    name: (identifier)
+    parameters: (parameter_list
+      (parameter
+        name: (identifier)
+        type: (type
+          (primitive_type)))
+      (parameter
+        name: (identifier)
+        type: (type
+          (primitive_type))))
+    return_type: (type
+      (primitive_type))
+    body: (block
+      (return_statement
+        (binary_expression
+          (identifier)
+          (identifier))))))
+
+================================================================================
+Extern function
+================================================================================
+
+extern fn puts(s: str) i32;
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_declaration
+    name: (identifier)
+    parameters: (parameter_list
+      (parameter
+        name: (identifier)
+        type: (type
+          (primitive_type))))
+    return_type: (type
+      (primitive_type))))
+
+================================================================================
+Export function
+================================================================================
+
+export fn hello() {
+}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_declaration
+    name: (identifier)
+    parameters: (parameter_list)
+    body: (block)))

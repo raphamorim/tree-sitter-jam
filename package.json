@@ -1,0 +1,38 @@
+{
+  "name": "tree-sitter-jam",
+  "version": "0.1.0",
+  "description": "Tree-sitter grammar for the Jam programming language",
+  "main": "bindings/node",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/user/tree-sitter-jam"
+  },
+  "license": "MIT",
+  "keywords": [
+    "tree-sitter",
+    "parser",
+    "jam",
+    "syntax"
+  ],
+  "dependencies": {
+    "nan": "^2.18.0"
+  },
+  "devDependencies": {
+    "tree-sitter-cli": "^0.22.0"
+  },
+  "scripts": {
+    "build": "tree-sitter generate",
+    "test": "tree-sitter test",
+    "parse": "tree-sitter parse"
+  },
+  "tree-sitter": [
+    {
+      "scope": "source.jam",
+      "injection-regex": "^jam$",
+      "file-types": [
+        "jam"
+      ],
+      "highlights": "queries/highlights.scm"
+    }
+  ]
+}
