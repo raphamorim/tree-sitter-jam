@@ -1,4 +1,3 @@
-[extension]
 id = "jam"
 name = "Jam"
 description = "Jam programming language support for Zed"
