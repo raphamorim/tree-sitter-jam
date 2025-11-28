@@ -1,0 +1,26 @@
+{
+  "grammars": [
+    {
+      "name": "jam",
+      "camelcase": "Jam",
+      "scope": "source.jam",
+      "path": ".",
+      "file-types": ["jam"],
+      "highlights": "queries/highlights.scm",
+      "injection-regex": "^jam$"
+    }
+  ],
+  "metadata": {
+    "version": "0.1.0",
+    "license": "MIT",
+    "description": "Jam grammar for tree-sitter",
+    "authors": [
+      {
+        "name": "Raphael Amorim"
+      }
+    ],
+    "links": {
+      "repository": "https://github.com/raphamorim/tree-sitter-jam"
+    }
+  }
+}
